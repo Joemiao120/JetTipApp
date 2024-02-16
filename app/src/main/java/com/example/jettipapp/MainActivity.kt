@@ -105,7 +105,6 @@ fun MainContent() {
 }
 
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun BillForm(
     modifier: Modifier = Modifier,
@@ -125,10 +124,12 @@ fun BillForm(
             .padding(2.dp)
             .fillMaxWidth(),
         shape = RoundedCornerShape(corner = CornerSize(8.dp)),
-        border = BorderStroke(2.dp, Color.LightGray)
+        border = BorderStroke(1.dp, Color.LightGray)
     ) {
 
-        Column {
+        Column(modifier = Modifier.padding(6.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start) {
             InputField(
                 valueState = totalBillState,
                 labelId = "Enter Bill",

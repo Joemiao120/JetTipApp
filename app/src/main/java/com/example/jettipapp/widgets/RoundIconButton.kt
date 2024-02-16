@@ -2,6 +2,7 @@ package com.example.jettipapp.widgets
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -23,14 +24,19 @@ fun RoundIconButton(
     backgroundColor: Color = MaterialTheme.colorScheme.background,
     elvation: Dp = 4.dp
 ) {
-    Card(modifier = modifier
-        .padding(all = 4.dp)
-        .clickable { onClick.invoke() },
+    Card(
+        modifier = modifier
+            .padding(all = 4.dp)
+            .clickable { onClick.invoke() },
         shape = CircleShape,
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
-        elevation = CardDefaults.cardElevation(elvation)) {
+        elevation = CardDefaults.cardElevation(elvation),
 
-        Icon(imageVector = imageVector, contentDescription = "Plus or minus icon",
-            tint = tint)
+    ) {
+
+        Icon(modifier = Modifier.size(40.dp),
+            imageVector = imageVector, contentDescription = "Plus or minus icon",
+            tint = tint
+        )
     }
 }
